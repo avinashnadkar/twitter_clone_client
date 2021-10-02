@@ -1,11 +1,10 @@
-import logo from './logo.svg';
+import Routes from "./Routes/Routes.jsx";
 import './App.css';
-import SignupForm from './Components/SignupForm/SignupForm';
 
 function App() {
   return (
     <div className="App">
-      <SignupForm/>
+      <Routes/>
     </div>
   );
 }
