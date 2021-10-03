@@ -6,7 +6,7 @@ import {Route,Switch} from "react-router-dom";
 
 const Routes = () => {
     return(
-        <>
+        <div>
            <Switch>
               <Route exact path={'/'}>
                   <Home/>
@@ -21,7 +21,7 @@ const Routes = () => {
                   <PageNotFound/>
               </Route>
            </Switch>
-        </>
+        </div>
     )
 }
 
