@@ -1,0 +1,72 @@
+nav{
+    height: 100vh;
+    border-right: 1px solid rgb(228, 228, 228);
+    max-width: 330px;
+    position: fixed;
+}
+
+.logo img{
+    height: 35px;
+    margin: 10px 65px;
+}
+
+.navLinks{
+    padding: 0px 15px;
+    margin : 0;
+    font-size: 22px;
+}
+
+.navLinks li{
+    list-style: none;
+    margin: 20px 50px;
+    display: flex;
+    align-items: center;
+}
+.navLinks li p{
+    padding: 0;
+    margin: 0px 10px;
+}
+.moreHorizIcon{
+    border:1px solid grey;
+    padding: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
+.tweetBtn{
+    margin: 20px 50px;
+    background-color: rgb(0, 153, 255);
+    color: white;
+    padding: 14px 80px;
+    border-radius: 30px;
+    font-weight: bolder;
+}
+
+.profile{
+    display: flex;
+    width: 200px;
+    margin: 87px auto 0 auto;
+    height: fit-content;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 50px;
+    padding: 10px;
+}
+.profile:hover{
+    background-color: rgb(230, 230, 230);
+}
+.profilePic img{
+    border-radius: 50px;
+    height: 35px;
+}
+
+.profile .nameContainer p{
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.profileIcon{
+    margin-left: 30px;
+}
