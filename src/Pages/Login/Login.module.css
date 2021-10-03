@@ -1,0 +1,65 @@
+.loginPage div{
+}
+
+.twitterLogo{
+    height: 45px;
+    margin-top: 20px;
+}
+
+.row{
+    display :flex;
+}
+.col_2{
+    padding: 10px 50px;
+}
+.col_2 h1{
+    font-size: 66px;
+}
+.col_2 h2{
+    font-size: 32px;
+}
+.col_2 button{
+    padding: 10px;
+    display: flex;
+    width: 300px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border:1px solid rgb(202, 202, 202);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 14px;
+}
+
+button img{
+    height: 20px;
+    margin-right: 5px;
+}
+
+.col_2 p{
+    font-size: 14px;
+    width: 70%;
+}
+
+.SigninLink{
+    color: blue;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+.footerLinks{
+    display: flex;
+    justify-content: space-around;
+}
+.footerLinks li{
+    font-size: 12px;
+    list-style: none;
+}
+.copyRight{
+    text-align: center;
+    font-size: 12px;
+}

@@ -3,7 +3,7 @@ import style from "./SignupForm.module.css";
 import twitterLogo from "../../Images/twitter-logo.png";
 import CloseIcon from '@mui/icons-material/Close';
 
-const SignupForm = () => {
+const SignupForm = ({cancelForm}) => {
 
     /////////////////////////// Setting states and initial data for components ////////////////////////////
 
@@ -97,7 +97,7 @@ const SignupForm = () => {
         <div className={style.signupForm}>
            <div className={style.formContainer}>
                <form>
-                    <button className={style.cancelBtn}><CloseIcon/></button>
+                    <button className={style.cancelBtn} onClick={cancelForm}><CloseIcon/></button>
                     <div className={style.logo}><img src={twitterLogo}/></div>
                     <div> <h2>Create your account</h2></div>
                     <div className={style.inputBoxContainer}>
