@@ -4,8 +4,22 @@ import googleLogo from "../../Images/google_logo.png";
 import appleLogo from "../../Images/apple_logo.png";
 import style from "./Login.module.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import LoginForm from "../../Components/LoginForm/LoginForm";
 
 const Login = () => {
+
+    const [loginForm,setLoginForm] = useState(false);
+
+    const openLoginForm = () => {
+        if(loginForm){
+            setLoginForm(false)
+        }else{
+            setLoginForm(true)
+        }
+        //console.log('clicked')
+    }
+
     return(
         <div className={style.loginPage}>
             <div className={style.row}>
@@ -17,7 +31,7 @@ const Login = () => {
 
                     <button> <img src={googleLogo}/> Sign in with Google</button> <br/>
                     <button> <img src={appleLogo}/> Sign in with Apple</button> <br/>
-                    <button>Use phone, email or username</button>
+                    <button onClick={openLoginForm}>Use phone, email or username</button>
 
                     <p>Don't have an account? <Link to={'/signup'}><span className={style.SigninLink}>Sign up</span> </Link> </p>
                 </div>
@@ -42,6 +56,9 @@ const Login = () => {
                 <li>Settings</li>
             </ul>
             <p className={style.copyRight}>© 2021 Twitter, Inc.</p>
+            <div style={{display: loginForm ? "flex" : "none"}}>
+                <LoginForm  cancelForm={openLoginForm}/>
+            </div>
         </div>
     )
 }

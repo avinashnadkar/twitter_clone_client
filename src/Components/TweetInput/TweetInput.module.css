@@ -1,0 +1,84 @@
+.tweetFormContainer{
+    margin-top:45px;
+    border-top: 1px solid rgb(202, 202, 202);
+    border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+.tweetFormContainer form{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 10px 0px 10px;
+}
+
+.tweetFormContainer form img{
+    height: 50px;
+    border-radius: 50px;
+}
+
+.inputContainer{
+    width: 85%;
+}
+.inputContainer textarea{
+    width: 85%;
+    border: none;
+    font-size: 20px;
+    outline: none;
+    height: 30px;
+    margin-top: 5px;
+    font-family: sans-serif;
+}
+
+/* select tag */
+#reply{
+   border:none;
+   outline: none;
+   font-size: 14px;
+   color: rgb(29, 155, 240);
+}
+
+.mediaUpload_and_SubmitBtn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin-top: 10px;
+    padding: 0px;
+    border-top:1px solid rgb(207, 207, 207);
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    border-radius: 50px;
+    width: fit-content;
+    padding: 5px;
+}
+.fileUpload:hover{
+    background-color: skyblue;
+}
+.imgUploadIcon{
+    color: rgb(19, 149, 182);
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.mediaUpload_and_SubmitBtn button{
+    background-color: rgb(29, 155, 240);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: 90px;
+    height: fit-content;
+    padding: 10px;
+}
+
