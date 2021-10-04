@@ -1,0 +1,22 @@
+.feed{
+    width: 640px;
+    margin-left: 305px;
+    border-right:  1px solid rgb(228, 228, 228);
+}
+
+.feedHeader{
+    position: fixed;
+    width: 639px;
+    background-color: white;
+    border-bottom:  1px solid rgb(228, 228, 228);
+    border-left:1px solid rgb(228, 228, 228);
+    border-right: 1px solid rgb(228, 228, 228);
+    height: 45px;
+}
+
+.feedHeader p{
+    font-size: 20px;
+    padding: 0;
+    margin: 10px;
+    font-weight: bolder;
+}
