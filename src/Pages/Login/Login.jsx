@@ -17,7 +17,6 @@ const Login = () => {
         }else{
             setLoginForm(true)
         }
-        //console.log('clicked')
     }
 
     return(
