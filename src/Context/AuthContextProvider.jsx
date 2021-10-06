@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const AuthContext = React.createContext();
 
 const AuthContextProvider = ({children}) => {
 
-   const [token,setToken] = useState("");
-   const [isAuth,setIsAuth] = useState(false);
+   let webToken = localStorage.getItem('token');
+
+   const [isAuth,setIsAuth] = useState(webToken == null ? false : true);
    const [credentials, setCredentials] = useState({email:"",password:""})
+
 
    //Change input state
    const handleChange = (e) => {
@@ -20,10 +23,20 @@ const AuthContextProvider = ({children}) => {
    //Login user
    const handleLogin = (e) => {
        e.preventDefault();
-       console.log(credentials)
+       //Make a post request to login
+       axios.post("http://localhost:2345/users/login",{
+           'email' : credentials.email,
+           'password' : credentials.password
+       }).then(res=>{
+           localStorage.setItem("token", res.data.token);
+            setIsAuth(true);
+       }).catch(err=>{
+           console.log({"error":err})
+       })
+
    }
 
-   const value = { token,isAuth,handleChange,handleLogin, credentials};
+   const value = { isAuth,handleChange,handleLogin, credentials};
 
    return(
         <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
