@@ -4,10 +4,14 @@ import googleLogo from "../../Images/google_logo.png";
 import appleLogo from "../../Images/apple_logo.png";
 import style from "./Login.module.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState,useContext } from "react";
 import LoginForm from "../../Components/LoginForm/LoginForm";
+import { AuthContext } from "../../Context/AuthContextProvider";
+import { Redirect } from "react-router-dom";
 
 const Login = () => {
+
+    const {isAuth} = useContext(AuthContext);
 
     const [loginForm,setLoginForm] = useState(false);
 
@@ -18,8 +22,8 @@ const Login = () => {
             setLoginForm(true)
         }
     }
-
-    return(
+    
+    return (!isAuth) ? (
         <div className={style.loginPage}>
             <div className={style.row}>
                 <div><img src={twitterBanner}/></div>
@@ -59,6 +63,8 @@ const Login = () => {
                 <LoginForm  cancelForm={openLoginForm}/>
             </div>
         </div>
+    ):(
+         <Redirect to={"/"}  />
     )
 }
 

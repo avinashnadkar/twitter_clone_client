@@ -5,9 +5,13 @@ import appleLogo from "../../Images/apple_logo.png";
 import style from "./Signup.module.css";
 import { Link } from "react-router-dom";
 import SignupForm from "../../Components/SignupForm/SignupForm";
-import { useState } from "react";
+import { useState,useContext } from "react";
+import { AuthContext } from "../../Context/AuthContextProvider";
+import { Redirect } from "react-router-dom";
 
 const Signup = () => {
+
+    const {isAuth} = useContext(AuthContext );
 
     const [signupForm,setSignupForm] = useState(false);
 
@@ -19,7 +23,7 @@ const Signup = () => {
         }
     }
 
-    return(
+    return (!isAuth) ? (
         <div className={style.loginPage}>
         <div className={style.row}>
             <div><img src={twitterBanner}/></div>
@@ -62,6 +66,8 @@ const Signup = () => {
             <SignupForm  cancelForm={openSignupForm}/>
         </div>
     </div>
+    ) :(
+         <Redirect to={"/"}  />
     )
 }
 
