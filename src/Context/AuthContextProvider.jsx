@@ -10,8 +10,12 @@ const AuthContextProvider = ({children}) => {
    const [isAuth,setIsAuth] = useState(webToken == null ? false : true);
    const [credentials, setCredentials] = useState({email:"",password:""})
 
+   //Regeister user/ signup form
+   const handleRegister = () =>{
+        
+   }
 
-   //Change input state
+   //Change input state for login form
    const handleChange = (e) => {
        let [name,value] = [e.target.name,e.target.value];
        setCredentials({
@@ -33,10 +37,10 @@ const AuthContextProvider = ({children}) => {
        }).catch(err=>{
            console.log({"error":err})
        })
-
    }
 
-   const value = { isAuth,handleChange,handleLogin, credentials};
+
+   const value = { isAuth, setIsAuth, handleChange,handleLogin, credentials};
 
    return(
         <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
