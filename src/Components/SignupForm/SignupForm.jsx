@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useState , useContext } from "react";
 import style from "./SignupForm.module.css";
 import twitterLogo from "../../Images/twitter-logo.png";
 import CloseIcon from '@mui/icons-material/Close';
+import { AuthContext } from "../../Context/AuthContextProvider";
+import { Redirect } from "react-router-dom";
+import axios from "axios";
 
 const SignupForm = ({cancelForm}) => {
+
+    //////////////////////////////////Context states and function//////////////////////////////////////
+    const {setIsAuth} = useContext(AuthContext);
 
     /////////////////////////// Setting states and initial data for components ////////////////////////////
 
@@ -86,6 +92,27 @@ const SignupForm = ({cancelForm}) => {
         //console.log(userData)
     }
 
+    //Submit form on server to register user account
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        axios.post("http://localhost:2345/users/signup",{  
+            "name" : userData.name,
+            "password" : userData.password,
+            "email" : userData.email,
+            "phone" : userData.phone,
+            "birthDate" : `${userData.birthDay} ${userData.birthMonth} ${userData.birthYear}`
+        }).then(res=>{
+            if(res.data.token != null){
+                //Store jwt token in local storage 
+                localStorage.setItem("token", res.data.token);
+                //Make auth state true
+                setIsAuth(true)
+            }
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
+
     //Toggle between phone input field and Email field
     const togglePhoneOrEmail = () => {
         setValidPhone(true)
@@ -96,8 +123,8 @@ const SignupForm = ({cancelForm}) => {
     return(
         <div className={style.signupForm}>
            <div className={style.formContainer}>
-               <form>
-                    <button className={style.cancelBtn} onClick={cancelForm}><CloseIcon/></button>
+               <form onSubmit={handleSubmit}>
+                    <div className={style.cancelBtn} onClick={cancelForm}><CloseIcon/></div>
                     <div className={style.logo}><img src={twitterLogo}/></div>
                     <div> <h2>Create your account</h2></div>
                     <div className={style.inputBoxContainer}>
