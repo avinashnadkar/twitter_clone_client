@@ -3,22 +3,52 @@ import style from "./LoginForm.module.css";
 import twitterLogo from "../../Images/twitter-logo.png";
 import CloseIcon from '@mui/icons-material/Close';
 import { AuthContext } from "../../Context/AuthContextProvider";
+import axios from "axios";
 
 const LoginForm = ({cancelForm}) => {
-
-    ///////Context Functions and data //////////
-    const { handleChange,handleLogin,credentials } = useContext(AuthContext);
 
     //////Setting states and initial data for components ////////
     //Phone or email toggle (bool)
     const [togglePassword, setTogglePassword] = useState(false);
+    //Credentials for login
+    const [credentials, setCredentials] = useState({email:"",password:""})
+
+    ///////Context Functions and data //////////
+    const { setIsAuth, isAuth } = useContext(AuthContext);
 
     //////Functions ////////
     //Toggle between email input field and password field
     const togglePasswordBox = () => {
         setTogglePassword(true)
     }
-    
+
+    //Change input state for login form
+    const handleChange = (e) => {
+        let [name,value] = [e.target.name,e.target.value];
+        setCredentials({
+            ...credentials,
+            [name] : value
+        })
+    }
+
+
+    //Login user
+    const handleLogin = (e) => {
+        e.preventDefault();
+        //Make a post request to login
+        axios.post("http://localhost:2345/users/login",{
+            'email' : credentials.email,
+            'password' : credentials.password
+        }).then(res=>{
+            //Store jwt token and userId in local storage 
+            localStorage.setItem("token", res.data.results.token);
+            localStorage.setItem("user_id", res.data.results.u_id);
+            setIsAuth(true);
+        }).catch(err=>{
+            console.log({"error":err})
+        })
+    }
+
     return(
         <div className={style.signupForm}>
            <div className={style.formContainer}>
