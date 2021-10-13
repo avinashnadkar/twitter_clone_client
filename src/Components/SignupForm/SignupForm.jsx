@@ -102,10 +102,11 @@ const SignupForm = ({cancelForm}) => {
             "phone" : userData.phone,
             "birthDate" : `${userData.birthDay} ${userData.birthMonth} ${userData.birthYear}`
         }).then(res=>{
-            if(res.data.token != null){
+            if(res.data.results.token != null){
                 //Store jwt token and userId in local storage 
                 localStorage.setItem("token", res.data.results.token);
                 localStorage.setItem("user_id", res.data.results.u_id);
+                
                 //Make auth state true
                 setIsAuth(true)
             }
