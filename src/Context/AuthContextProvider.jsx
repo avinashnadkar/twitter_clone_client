@@ -8,7 +8,7 @@ const AuthContextProvider = ({children}) => {
 
    const [isAuth,setIsAuth] = useState(webToken == null ? false : true);
 
-   const value = { isAuth, setIsAuth};
+   const value = { isAuth, setIsAuth, webToken};
 
    return(
         <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
