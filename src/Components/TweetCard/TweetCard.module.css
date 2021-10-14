@@ -1,0 +1,45 @@
+.tweetCard{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.tweetCard:hover{
+    background-color: rgba(240, 240, 240, 0.514);
+}
+
+.userInfo{
+    display: flex;
+    height: fit-content;
+    padding: 10px 10px 0px 10px;
+}
+.displayPicture{
+    height: 50px;
+    width: 50px;
+}
+.userInfo img{
+    border-radius: 50px;
+}
+.userName{
+    display: flex;
+    align-items: center;
+}
+.userName h4{
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+}
+.userName p{
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+}
+
+.tweet{
+    padding:0px 10px 10px 70px;
+    font-size: 14px;
+}
+
+.mediaFile{
+    width: 550px;
+    padding: 10px;
+}
