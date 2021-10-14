@@ -2,6 +2,7 @@ import { useState , useContext } from "react";
 import style from "./SignupForm.module.css";
 import twitterLogo from "../../Images/twitter-logo.png";
 import CloseIcon from '@mui/icons-material/Close';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
@@ -19,6 +20,8 @@ const SignupForm = ({cancelForm}) => {
 
     //Phone or email toggle (bool)
     const [phoneOrEmail, setPhoneOrEmail] = useState(true);
+    //password toggle (bool) 
+    const [passwordField, setPasswordField] = useState(false);
 
     //Set days according to months and leap year; (Arr)
     let odd_days = [];
@@ -121,59 +124,93 @@ const SignupForm = ({cancelForm}) => {
         setPhoneOrEmail(!phoneOrEmail)
         setUserData(phoneOrEmail ? {...userData, phone: ""} : {...userData, email: ""})
     }
+
+    //Toggle between password field and user data input fields
+    const togglePasswordField = () => {
+
+        //check all input fields are not empty
+        let flag = true;
+        for(let key in userData){
+            if(userData[key] == ""){
+                flag = false;
+            }else if((userData["email"] == "" && userData["phone"] != "") || (userData["email"] != "" && userData["phone"] == "") && userData['name'] != ""){
+                flag = true;
+            }
+        }
+        if(flag) setPasswordField(true)
+    }
     
     return(
         <div className={style.signupForm}>
            <div className={style.formContainer}>
                <form onSubmit={handleSubmit}>
-                    <div className={style.cancelBtn} onClick={cancelForm}><CloseIcon/></div>
+                    <div>
+                        <div className={style.cancelBtn} onClick={cancelForm} style={{display:passwordField?"none":"block"}}><CloseIcon/></div>
+                        <div className={style.goBackBtn} onClick={()=>setPasswordField(false)} style={{display:passwordField?"block":"none"}}>< KeyboardBackspaceIcon /></div>
+                    </div>
                     <div className={style.logo}><img src={twitterLogo}/></div>
                     <div> <h2>Create your account</h2></div>
-                    <div className={style.inputBoxContainer}>
-                      <input type="text" name="name" value={userData.name} onChange={handleChange} placeholder="Name"/>
+
+                    {/* toggle to password field if passwordField is true*/}
+                    <div style={{display:passwordField?"none":"block"}}>
+
+                            <div className={style.inputBoxContainer}>
+                               <input type="text" name="name" value={userData.name} onChange={handleChange} placeholder="Name"/>
+                            </div>
+
+                            <div className={style.inputBoxContainer}>
+                                <input type="email" name="email" value={userData.email}  onChange={handleChange} style={{display : phoneOrEmail ?"block" : "none"}} placeholder="Email"/>
+                                <input type="text" name="phone" value={userData.phone}  onChange={handleChange} style={{display : phoneOrEmail ?"none" : "block"}} placeholder="Phone"/>
+                                <p className={style.alertMSG} style={{display:validPhone ? "none":"block"}}>Please enter a valid {phoneOrEmail ? "email" : "phone"}  number.</p>
+                                <p onClick={togglePhoneOrEmail} className={style.phoneEmailToggle}>Use {phoneOrEmail ?  "phone":"email" } instead</p>
+                            </div>
+
+                            <div className={style.calendar}>
+                                <p>Date of birth</p>
+                                <p>This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.</p>
+                                
+                                <div className={style.datePicker}>
+                                    <select  name="birthMonth" onChange={handleChange} className={style.selectMonth}>
+                                        <option style={{display:"none"}}>Month</option>
+                                            {
+                                                months.map(month=>{
+                                                return <option value={month}>{month}</option>
+                                                })
+                                            }                       
+                                    </select>
+                                    <select  name="birthDay" onChange={handleChange} className={style.selectDay}>
+                                        <option style={{display:"none"}}>Day</option>
+                                            {
+                                                days.map(day=>{
+                                                return <option value={day}>{day}</option>
+                                                })
+                                            }                       
+                                    </select>
+                                    <select  name="birthYear" onChange={handleChange} className={style.selectYear}>
+                                        <option style={{display:"none"}}>Year</option>
+                                            {
+                                                years.map(year=>{
+                                                return <option value={year}>{year}</option>
+                                                })
+                                            }                       
+                                    </select>
+                                </div>
+                            </div>
                     </div>
 
-                    <div className={style.inputBoxContainer}>
-                        <input type="email" name="email" value={userData.email}  onChange={handleChange} style={{display : phoneOrEmail ?"block" : "none"}} placeholder="Email"/>
-                        <input type="text" name="phone" value={userData.phone}  onChange={handleChange} style={{display : phoneOrEmail ?"none" : "block"}} placeholder="Phone"/>
-                        <p className={style.alertMSG} style={{display:validPhone ? "none":"block"}}>Please enter a valid {phoneOrEmail ? "email" : "phone"}  number.</p>
-                        <p onClick={togglePhoneOrEmail} className={style.phoneEmailToggle}>Use {phoneOrEmail ?  "phone":"email" } instead</p>
+                    <div className={style.inputBoxContainer} style={{display:passwordField ? "block" : "none"}}>
+                      <input type="password" name="password" value={userData.password} onChange={handleChange} placeholder="Password"/>
+                    </div>
+                  
+
+                    {/* button to toggle to password field */}
+                    <div style={{display: passwordField ? "none":"block"}}>
+                        <div className={style.nextBtn} onClick={togglePasswordField}>Next</div>
                     </div>
 
-                    <div className={style.calendar}>
-                        <p>Date of birth</p>
-                        <p>This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.</p>
-                        
-                        <div className={style.datePicker}>
-                            <select  name="birthMonth" onChange={handleChange} className={style.selectMonth}>
-                                <option style={{display:"none"}}>Month</option>
-                                    {
-                                        months.map(month=>{
-                                        return <option value={month}>{month}</option>
-                                        })
-                                    }                       
-                            </select>
-                            <select  name="birthDay" onChange={handleChange} className={style.selectDay}>
-                                <option style={{display:"none"}}>Day</option>
-                                    {
-                                        days.map(day=>{
-                                        return <option value={day}>{day}</option>
-                                        })
-                                    }                       
-                            </select>
-                            <select  name="birthYear" onChange={handleChange} className={style.selectYear}>
-                                <option style={{display:"none"}}>Year</option>
-                                    {
-                                        years.map(year=>{
-                                        return <option value={year}>{year}</option>
-                                        })
-                                    }                       
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <button className={style.nextBtn}>Next</button>
+                      {/* button to submit data*/}
+                    <div style={{display: passwordField ? "block":"none"}}>
+                        <button type="submit" className={style.nextBtn} onClick={togglePasswordField}>Sign up</button>
                     </div>
 
                </form>
