@@ -8,11 +8,9 @@ import { AuthContext } from "../../Context/AuthContextProvider";
 const Feed = () => {
 
     ///////Context Functions and data //////////
-    const { webToken } = useContext(AuthContext);
+    const { webToken, user_id,userData } = useContext(AuthContext);
 
     //States 
-    //const [tweets,setTweets] = useState([]);
-
     const [tweets,setTweets] = useState([]);
 
     //Get tweets 
@@ -30,6 +28,7 @@ const Feed = () => {
         .then(res => {
             //set State of Tweets
             setTweets(res.data)
+            //console.log(res.data)
         }).catch(err => {
             console.log(err)
         })
