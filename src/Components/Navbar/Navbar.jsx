@@ -26,6 +26,7 @@ const Navbar = () => {
                 <li><PersonOutlineIcon/><p>Profile</p></li>
                 <li><span className={style.moreHorizIcon}><MoreHorizIcon/></span><p> More</p></li>
             </ul>
+            <br/>
             <botton className={style.tweetBtn}>Tweet</botton>
 
             <div className={style.profile}>
