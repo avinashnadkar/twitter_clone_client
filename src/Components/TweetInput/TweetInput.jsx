@@ -33,7 +33,7 @@ const TweetInput = () => {
         })
 
         //set state of input to empty
-        setTweet({u_id: user_id,whoCanReply:""})
+        setTweet({u_id: user_id,tweet:"", whoCanReply:""})
     }
     
     //Change states on events
