@@ -43,6 +43,9 @@ const LoginForm = ({cancelForm}) => {
             //Store jwt token and userId in local storage 
             localStorage.setItem("token", res.data.results.token);
             localStorage.setItem("user_id", res.data.results.u_id);
+            localStorage.setItem("name", res.data.results.name);
+            localStorage.setItem("username", res.data.results.username);
+            localStorage.setItem("avtar", res.data.results.avtar);
             setIsAuth(true);
         }).catch(err=>{
             console.log({"error":err})
