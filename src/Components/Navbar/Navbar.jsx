@@ -10,18 +10,33 @@ import CheckIcon from '@mui/icons-material/Check';
 import style from "./Navbar.module.css";
 import twitterLogo from "../../Images/twitter-logo.png";
 import profilePic from "../../Images/profilePlaceholder.jpg";
-import { useState } from 'react';
+import { AuthContext } from '../../Context/AuthContextProvider';
+import { useContext, useState } from 'react';
 
 const Navbar = () => {
 
+    //Context data
+    const { setIsAuth } = useContext(AuthContext);
+
     const [logoutOption, setLogoutOption] = useState(false);
 
+    //Toggle logout option
     const showOptions = () => {
         if(logoutOption){
             setLogoutOption(false)
         }else{
             setLogoutOption(true)
         }
+    }
+
+    //Logout from website
+    const handleLogout = () => {
+            localStorage.removeItem('token')
+            localStorage.removeItem('user_id');
+            localStorage.removeItem('name');
+            localStorage.removeItem('username');
+            localStorage.removeItem('avtar');
+            setIsAuth(false)
     }
 
     return(
@@ -48,7 +63,7 @@ const Navbar = () => {
                     <div className={style.nameContainer}> <p>Name</p>  <p>Username</p></div>
                     <div className={style.profileIcon}> <CheckIcon color="primary" /> </div>
                 </div>
-                <p className={style.logout}>
+                <p className={style.logout} onClick={handleLogout}>
                     Log out @username
                 </p>
             </div>
