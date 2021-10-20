@@ -1,0 +1,33 @@
+
+.followUser{
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+}
+.userInfo p{
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+}
+.userName{
+    color: gray;
+}
+.profilePic{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+
+.followBtn{
+    font-weight: bolder;
+    padding: 8px 15px;
+    border-radius: 20px;
+    /* border:1px solid rgb(197, 197, 197); */
+    cursor: pointer;
+}
