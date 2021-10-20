@@ -54,3 +54,9 @@
     margin-top: 20px;
     border-radius: 15px;
 }
+
+.followRecommendBox .title{
+    padding: 20px 10px 0px 10px;
+    font-size: 18px;
+    font-weight: bolder;
+}
