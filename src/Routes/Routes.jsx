@@ -3,6 +3,7 @@ import Signup from "../Pages/Signup/Signup.jsx";
 import Login from "../Pages/Login/Login.jsx";
 import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 import {Route,Switch} from "react-router-dom";
+import Explore from "../Pages/Explore/Explore.jsx";
 
 const Routes = () => {
     return(
@@ -10,6 +11,9 @@ const Routes = () => {
            <Switch>
               <Route exact path={'/'}>
                   <Home/>
+              </Route>
+              <Route exact path={'/explore'}>
+                  <Explore/>
               </Route>
               <Route exact path={'/signup'}>
                   <Signup/>

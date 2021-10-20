@@ -12,6 +12,7 @@ import twitterLogo from "../../Images/twitter-logo.png";
 import profilePic from "../../Images/profilePlaceholder.jpg";
 import { AuthContext } from '../../Context/AuthContextProvider';
 import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -45,8 +46,8 @@ const Navbar = () => {
                <img src={twitterLogo}/>
             </div>
             <ul className={style.navLinks}>
-                <li><HomeIcon/><p>Home</p></li>
-                <li><ExploreIcon/><p>Explore</p></li>
+            <Link to={'/'}><li><HomeIcon/><p>Home</p></li> </Link>
+            <Link to={'/explore'}><li><ExploreIcon/><p>Explore</p></li></Link>
                 <li><NotificationsNoneIcon/><p>Notifications</p></li>
                 <li><MailOutlineIcon/><p>Messages</p></li>
                 <li><BookmarkBorderIcon/><p>Bookmarks</p></li>
