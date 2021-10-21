@@ -9,7 +9,7 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import CheckIcon from '@mui/icons-material/Check';
 import style from "./Navbar.module.css";
 import twitterLogo from "../../Images/twitter-logo.png";
-import profilePic from "../../Images/profilePlaceholder.jpg";
+import profilePic from "../../Images/avatar.png";
 import { AuthContext } from '../../Context/AuthContextProvider';
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -20,6 +20,10 @@ const Navbar = () => {
     const { setIsAuth } = useContext(AuthContext);
 
     const [logoutOption, setLogoutOption] = useState(false);
+
+    //State
+    const [name,setName] = useState(localStorage.getItem('name'))
+    const [userName,setUserName] = useState(localStorage.getItem('username'))
 
     //Toggle logout option
     const showOptions = () => {
@@ -71,7 +75,7 @@ const Navbar = () => {
 
             <div className={style.profile} onClick={showOptions}>
                 <div className={style.profilePic}> <img src={profilePic}/> </div>
-                <div className={style.nameContainer}> <p>Name</p>  <p>Username</p></div>
+                <div className={style.nameContainer}> <p>{name}</p>  <p>{userName}</p></div>
                 <div className={style.profileIcon}> <MoreHorizIcon/> </div>
             </div>
 

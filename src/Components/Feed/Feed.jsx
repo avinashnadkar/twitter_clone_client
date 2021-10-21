@@ -2,6 +2,7 @@ import axios from "axios";
 import TweetCard from "../TweetCard/TweetCard";
 import TweetInput from "../TweetInput/TweetInput";
 import style from "./Feed.module.css";
+import profilePic from "../../Images/avatar.png";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../Context/AuthContextProvider";
 
@@ -42,7 +43,7 @@ const Feed = () => {
                 <TweetInput />
                 {
                     tweets.map(el=>{
-                      return <TweetCard name={el.name} username="username" tweet={el.tweet} />
+                      return <TweetCard profilePic={profilePic} name={el.name} username={el.username} tweet={el.tweet} />
                     })
                 }           
             </div>

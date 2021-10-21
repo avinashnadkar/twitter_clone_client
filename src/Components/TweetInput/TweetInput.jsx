@@ -1,5 +1,5 @@
 import style from './TweetInput.module.css';
-import profilePic from '../../Images/profilePlaceholder.jpg'
+import profilePic from "../../Images/avatar.png";
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import { AuthContext } from '../../Context/AuthContextProvider';
 import { useContext, useState } from 'react';
