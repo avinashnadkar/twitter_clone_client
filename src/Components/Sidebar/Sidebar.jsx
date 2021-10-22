@@ -12,9 +12,7 @@ const Sidebar = () => {
                     {avtar:"https://gray-wmtv-prod.cdn.arcpublishing.com/resizer/9OfQfWXXpPR1jY_Y6QWuT_I75WA=/1200x800/smart/filters:quality(85)/cloudfront-us-east-1.images.arcpublishing.com/gray/BIARK5DSRBDLPM5NBJW4MWFSYI.jpg",name:"Egle",username:"@egle"},
                     {avtar:"https://i.natgeofe.com/k/75ac774d-e6c7-44fa-b787-d0e20742f797/giant-panda-eating.jpg",name:"Panda",username:"@panda"}
                  ]
- 
-
-
+                 
     return(
         <div className={style.sidebar}>
             <div className={style.searchBarHeader}>

@@ -1,10 +1,12 @@
 .tweetCard{
     margin: 0 auto;
     width: 100%;
+    border-bottom: 1px solid rgb(238, 238, 238);
 }
 
 .tweetCard:hover{
     background-color: rgba(240, 240, 240, 0.514);
+    cursor: pointer;
 }
 
 .userInfo{
@@ -32,14 +34,63 @@
     padding: 0;
     margin: 0;
     margin-left: 10px;
+    color: grey;
 }
 
 .tweet{
-    padding:0px 10px 10px 70px;
+    padding:0px 10px 10px 10px;
     font-size: 14px;
 }
 
 .mediaFile{
     width: 550px;
     padding: 10px;
+}
+
+.actions{
+    width: 470px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.actions div{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.actions div p{
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.actions div button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.commentIcon:hover{
+    background-color: rgb(218, 234, 245);
+    color:rgb(23, 145, 226) ;
+}
+
+.retweetIcon:hover{
+    background-color: rgb(218, 245, 224);
+    color:rgb(23, 226, 148) ;
+}
+
+.likeIcon:hover{
+    background-color: rgb(245, 218, 245);
+    color:rgb(226, 23, 148) ;
+}
+
+.shareIcon:hover{
+    background-color: rgb(218, 234, 245);
+    color:rgb(23, 145, 226) ;
 }
