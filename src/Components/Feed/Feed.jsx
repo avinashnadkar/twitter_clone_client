@@ -43,7 +43,7 @@ const Feed = () => {
                 <TweetInput />
                 {
                     tweets.map(el=>{
-                      return <TweetCard profilePic={profilePic} name={el.name} username={el.username} tweet={el.tweet} />
+                      return <TweetCard profilePic={profilePic} name={el.name} username={el.username} tweet={el.tweet} likesCount={5} retweetCount={14} replyCount={22} />
                     })
                 }           
             </div>

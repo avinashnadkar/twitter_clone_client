@@ -80,5 +80,6 @@
     width: 90px;
     height: fit-content;
     padding: 10px;
+    cursor: pointer;
 }
 
