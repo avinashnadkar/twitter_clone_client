@@ -3,8 +3,13 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import SwapVertIcon from '@mui/icons-material/SwapVert';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import IosShareIcon from '@mui/icons-material/IosShare';
+import { useContext } from 'react';
+import { OpenModalContext } from '../../Context/OpenModalContextProvider';
 
 const TweetCard = ({profilePic,name,username,tweet,media,replyCount,retweetCount,likesCount}) => {
+
+   const {handleOpenModal,openModal} = useContext(OpenModalContext)
+
     return(
         <div className={style.tweetCard}>
               <div className={style.userInfo}>
@@ -17,7 +22,7 @@ const TweetCard = ({profilePic,name,username,tweet,media,replyCount,retweetCount
                     <p className={style.tweet}>{tweet}</p>
                     <div className={style.actions}>
                         <div>
-                           <button className={style.commentIcon}> <ChatBubbleOutlineIcon style={{ fontSize: 18 }}/> </button>
+                           <button className={style.commentIcon} onClick={handleOpenModal}> <ChatBubbleOutlineIcon style={{ fontSize: 18 }}/> </button>
                            <p>{replyCount}</p>
                         </div>
                         <div>

@@ -11,6 +11,7 @@ import style from "./Navbar.module.css";
 import twitterLogo from "../../Images/twitter-logo.png";
 import profilePic from "../../Images/avatar.png";
 import { AuthContext } from '../../Context/AuthContextProvider';
+import { OpenModalContext } from '../../Context/OpenModalContextProvider';
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -18,10 +19,10 @@ const Navbar = () => {
 
     //Context data
     const { setIsAuth } = useContext(AuthContext);
-
-    const [logoutOption, setLogoutOption] = useState(false);
+    const {openAddTweetModal,handleOpenAddTweetModal} = useContext(OpenModalContext)
 
     //State
+    const [logoutOption, setLogoutOption] = useState(false);
     const [name,setName] = useState(localStorage.getItem('name'))
     const [userName,setUserName] = useState(localStorage.getItem('username'))
 
@@ -60,7 +61,7 @@ const Navbar = () => {
                 <li><span className={style.moreHorizIcon}><MoreHorizIcon/></span><p> More</p></li>
             </ul>
             <br/>
-            <botton className={style.tweetBtn}>Tweet</botton>
+            <botton className={style.tweetBtn} onClick={handleOpenAddTweetModal}>Tweet</botton>
 
             <div className={style.logoutOption} style={{display : logoutOption ? "block" : "none"}}>
                 <div className={style.profile}>
@@ -78,7 +79,6 @@ const Navbar = () => {
                 <div className={style.nameContainer}> <p>{name}</p>  <p>{userName}</p></div>
                 <div className={style.profileIcon}> <MoreHorizIcon/> </div>
             </div>
-
         </nav>
     )
 }
