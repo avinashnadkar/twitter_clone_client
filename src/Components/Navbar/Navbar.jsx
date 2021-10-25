@@ -57,7 +57,7 @@ const Navbar = () => {
                 <li><MailOutlineIcon/><p>Messages</p></li>
                 <li><BookmarkBorderIcon/><p>Bookmarks</p></li>
                 <li><ListIcon/><p>Lists</p></li>
-                <li><PersonOutlineIcon/><p>Profile</p></li>
+            <Link to={'/profile'}><li><PersonOutlineIcon/><p>Profile</p></li></Link>
                 <li><span className={style.moreHorizIcon}><MoreHorizIcon/></span><p> More</p></li>
             </ul>
             <br/>
