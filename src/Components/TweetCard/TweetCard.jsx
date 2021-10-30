@@ -3,15 +3,16 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import SwapVertIcon from '@mui/icons-material/SwapVert';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import IosShareIcon from '@mui/icons-material/IosShare';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { OpenModalContext } from '../../Context/OpenModalContextProvider';
 
-const TweetCard = ({profilePic,name,username,tweet,media,replyCount,retweetCount,likesCount}) => {
+const TweetCard = ({profilePic,name,username,tweet,media,replyCount,retweetCount,likesCount,showActionBar,tweetID}) => {
 
-   const {handleOpenModal,openModal} = useContext(OpenModalContext)
+   const {replyTweetModal,handleReplyTweetModal} = useContext(OpenModalContext)
+
 
     return(
-        <div className={style.tweetCard}>
+        <div className={style.tweetCard} style={{ borderBottom : showActionBar ?  '1px solid rgb(238, 238, 238)' : 'none'}}>
               <div className={style.userInfo}>
                  <img src={profilePic} className={style.displayPicture}/>
                  <div>
@@ -20,9 +21,9 @@ const TweetCard = ({profilePic,name,username,tweet,media,replyCount,retweetCount
                         <p>{username}</p>
                     </div>
                     <p className={style.tweet}>{tweet}</p>
-                    <div className={style.actions}>
+                    <div className={style.actions} style={{display : showActionBar ? "flex" :"none"}}>
                         <div>
-                           <button className={style.commentIcon} onClick={handleOpenModal}> <ChatBubbleOutlineIcon style={{ fontSize: 18 }}/> </button>
+                           <button className={style.commentIcon} onClick={()=>handleReplyTweetModal(tweetID)}> <ChatBubbleOutlineIcon style={{ fontSize: 18 }}/> </button>
                            <p>{replyCount}</p>
                         </div>
                         <div>

@@ -10,6 +10,7 @@ import { OpenModalContext } from "../../Context/OpenModalContextProvider";
 import ProfileCard from "../../Components/ProfileCard/ProfileCard";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import AddTweetModal from "../../Components/Modals/AddTweetModal";
+import ReplyTweetModal from "../../Components/Modals/ReplyTweetModal";
 import FollowUser from "../../Components/FollowUser/FollowUser";
 
 const Profile = () => {
@@ -79,7 +80,7 @@ const Profile = () => {
                 <div className={style.tweetsContainer}>
                    {
                        tweets.map(el=>{
-                           return <TweetCard  name={el.name} username={el.username} tweet={el.tweet} replyCount={el.reply.length} likesCount={el.likes.length}/>
+                           return <TweetCard  name={el.name} username={el.username} tweet={el.tweet} replyCount={el.reply.length} likesCount={el.likes.length} showActionBar={true}/>
                        })
                    }
                 </div>
