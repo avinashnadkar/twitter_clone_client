@@ -1,0 +1,54 @@
+.profilePage{
+    display: flex;
+}
+
+.main{
+    width: 640px;
+    margin-left: 305px;
+    border-right:  1px solid rgb(228, 228, 228);
+}
+
+.header{
+    display: flex;
+    height: 55px;
+    align-items: center;
+    position: fixed;
+    background-color: white;
+    width: 639px;
+    border:  1px solid rgb(228, 228, 228);
+    z-index: 2;
+}
+
+.header button{
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    margin-left: 20px;
+}
+
+.header p{
+    padding: 0;
+    margin: 0;
+}
+.header p:nth-child(1){
+    font-weight: bolder;
+    font-size: 18px;
+}
+.header p:nth-child(2){
+    font-size: 14px;
+    color: grey;
+}
+
+.header div{
+    margin-left: 30px;
+}
+
+.tweetsContainer{
+    margin-top: 50px;
+}
+
+.followRecomendation{
+    margin-top: 30px;
+}
+
