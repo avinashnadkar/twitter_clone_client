@@ -33,6 +33,10 @@
     background-color: rgb(233, 233, 233);
 }
 
+.replyContainer{
+    padding: 10px;
+}
+
 .modalForm{
     display: flex;
     justify-content: space-around;
@@ -119,3 +123,26 @@
      cursor: pointer;
  }
  
+ /* Reply modal components */
+
+ .inputBox .replyBox{
+    height: 90px;
+    width: 530px;
+    border: none;
+    outline: none;
+    padding-top: 20px;
+    font-size: 20px;
+    font-family: sans-serif;
+ }
+
+.replyBtn{
+    background-color: rgb(29, 155, 240);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: 90px;
+    height: fit-content;
+    padding: 10px;
+    cursor: pointer;
+ }
+

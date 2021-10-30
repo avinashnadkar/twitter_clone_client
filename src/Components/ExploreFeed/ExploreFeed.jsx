@@ -63,7 +63,7 @@ const ExploreFeed = () => {
                 <div className={style.tweetsContainer}>
                     {
                         tweets.map(el=>{
-                        return <TweetCard name={el.name} username="username" tweet={el.tweet} />
+                        return <TweetCard name={el.name} username="username" tweet={el.tweet} showActionBar={true} />
                         })
                     }  
                 </div>      
