@@ -2,7 +2,7 @@ import { useContext,useState } from "react";
 import axios from "axios";
 import { OpenModalContext } from "../../Context/OpenModalContextProvider";
 import {AuthContext} from "../../Context/AuthContextProvider";
-import style from "./AddTweetModalStyle.module.css";
+import style from "./ModalStyle.module.css";
 import profilePic from "../../Images/avatar.png";
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import CloseIcon from '@mui/icons-material/Close';
