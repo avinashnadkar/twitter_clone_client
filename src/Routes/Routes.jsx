@@ -6,6 +6,7 @@ import Navbar from "../Components/Navbar/Navbar"
 import {Route,Switch} from "react-router-dom";
 import Explore from "../Pages/Explore/Explore.jsx";
 import Profile from "../Pages/Profile/Profile.jsx";
+import Tweet from "../Pages/Tweet/Tweet.jsx";
 
 const Routes = () => {
     return(
@@ -26,6 +27,9 @@ const Routes = () => {
               </Route>
                <Route exact path={'/login'}>
                   <Login/>
+              </Route>
+              <Route>
+                  <Tweet/>
               </Route>
               <Route>
                   <PageNotFound/>
