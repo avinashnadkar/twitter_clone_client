@@ -12,7 +12,6 @@ const Explore = () => {
 
     return (isAuth)?(
         <div className={style.ExplorePage}>
-            <Navbar/>
               <ExploreFeed/>
             <Sidebar/>
         </div>

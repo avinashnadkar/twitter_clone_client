@@ -66,7 +66,6 @@ const Profile = () => {
     return (isAuth)?(
         <div className={style.profilePage}>
             <AddTweetModal/>
-            <Navbar/>
             <div className={style.main}>
                 <div className={style.header}>
                    <button><KeyboardBackspaceIcon/></button>

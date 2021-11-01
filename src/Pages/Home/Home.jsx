@@ -17,7 +17,6 @@ const Home = () => {
         <div className={style.homePage}>
             <AddTweetModal/>
             <ReplyTweetModal/>
-            <Navbar/>
             <Feed/>
             <Sidebar/>
         </div>
