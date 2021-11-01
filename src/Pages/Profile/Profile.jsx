@@ -50,7 +50,7 @@ const Profile = () => {
         })
 
         //get all tweets of user from server
-        axios.get(`http://localhost:2345/tweets/tweet/${user_id}`,{
+        axios.get(`http://localhost:2345/tweets/usertweets/${user_id}`,{
             headers
         })
         .then(res=>{

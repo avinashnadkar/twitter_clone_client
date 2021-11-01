@@ -4,15 +4,19 @@ import SwapVertIcon from '@mui/icons-material/SwapVert';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import IosShareIcon from '@mui/icons-material/IosShare';
 import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { OpenModalContext } from '../../Context/OpenModalContextProvider';
+import { TweetContext} from '../../Context/TweetContextProvider';
 
 const TweetCard = ({profilePic,name,username,tweet,media,replyCount,retweetCount,likesCount,showActionBar,tweetID}) => {
 
+   //Context data
    const {replyTweetModal,handleReplyTweetModal} = useContext(OpenModalContext)
-
+   const {getTweet} = useContext(TweetContext);
 
     return(
-        <div className={style.tweetCard} style={{ borderBottom : showActionBar ?  '1px solid rgb(238, 238, 238)' : 'none'}}>
+        <div onClick={()=>getTweet(tweetID)} className={style.tweetCard} style={{ borderBottom : showActionBar ?  '1px solid rgb(238, 238, 238)' : 'none'}}>
+              <Link to={'/tweet'}>
               <div className={style.userInfo}>
                  <img src={profilePic} className={style.displayPicture}/>
                  <div>
@@ -40,7 +44,8 @@ const TweetCard = ({profilePic,name,username,tweet,media,replyCount,retweetCount
                     </div>
                 </div> 
               </div>
-              <img className={style.mediaFile} src={media}/> 
+              <img className={style.mediaFile} src={media}/>
+            </Link> 
         </div>
     )
 }
