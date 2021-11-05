@@ -24,7 +24,7 @@ const Signup = () => {
     }
 
     return (!isAuth) ? (
-        <div className={style.loginPage}>
+        <div className={style.signUpPage}>
         <div className={style.row}>
             <div><img src={twitterBanner}/></div>
             <div className={style.col_2}>
