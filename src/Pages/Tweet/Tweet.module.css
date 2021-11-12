@@ -91,3 +91,9 @@
 .tweet .text{
     font-size: 22px;
 }
+
+
+.mediaFiles img{
+    max-width: 600px;
+    border-radius:15px;
+}

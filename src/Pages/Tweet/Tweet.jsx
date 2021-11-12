@@ -73,7 +73,9 @@ const Tweet = () => {
                     </div>
                     <div className={style.tweet}>
                         <p className={style.text}>{tweet.tweet}</p>
-                        <div className={style.media}></div>
+                        <div className={style.mediaFiles}>
+                           <img src={tweet.media}/>
+                        </div>
                     </div>
                     <div className={style.replies}>
                     {
@@ -83,7 +85,7 @@ const Tweet = () => {
                                         name={el.name}
                                         username={el.username}
                                         tweet={el.comment}
-                                        media={""}
+                                        media={el.media}
                                         replyCount={0}
                                     />
                         })
