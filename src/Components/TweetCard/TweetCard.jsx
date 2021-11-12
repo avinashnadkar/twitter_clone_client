@@ -25,9 +25,11 @@ const TweetCard = ({profilePic,name,username,tweet,media,replyCount,retweetCount
                         <p>{username}</p>
                     </div>
                     <p className={style.tweet}>{tweet}</p>
+                   <img className={style.mediaFile} src={media}/>
+
                     <div className={style.actions} style={{display : showActionBar ? "flex" :"none"}}>
                         <div>
-                           <button className={style.commentIcon} onClick={()=>handleReplyTweetModal(tweetID)}> <ChatBubbleOutlineIcon style={{ fontSize: 18 }}/> </button>
+                           <button className={style.commentIcon} onClick={()=> handleReplyTweetModal(tweetID,name,username,tweet)}> <ChatBubbleOutlineIcon style={{ fontSize: 18 }}/> </button>
                            <p>{replyCount}</p>
                         </div>
                         <div>
@@ -44,7 +46,6 @@ const TweetCard = ({profilePic,name,username,tweet,media,replyCount,retweetCount
                     </div>
                 </div> 
               </div>
-              <img className={style.mediaFile} src={media}/>
             </Link> 
         </div>
     )
