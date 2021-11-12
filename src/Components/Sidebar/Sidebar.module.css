@@ -40,17 +40,61 @@
 }
 
 .newsBox{
-    height: 600px;
+    height: 595px;
     width: 330px;
-    background-color: rgb(240, 240, 240);
+    background-color: rgba(245, 245, 245, 0.692);
     margin-top: 40px;
     border-radius: 15px;
+}
+
+.newsBox h3{
+    padding: 10px;
+    margin: 0px;
+}
+
+.trending{
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+.trending:hover{
+    background-color: rgb(240, 240, 240);
+}
+
+.trending p{
+    padding: 0;
+    margin: 0;
+}
+
+.trendigTopic p:nth-child(1){
+    color: grey;
+    font-size: 14px;
+}
+
+.trendigTopic p:nth-child(2){
+    color: rgb(51, 51, 51);
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.showMoreLink{
+    padding: 15px 10px;
+    color: rgb(116, 193, 238);
+    cursor: pointer;
+    border-bottom-left-radius:15px;
+    border-bottom-right-radius:15px;
+}
+
+.showMoreLink:hover{
+    background-color: rgb(240, 240, 240);
 }
 
 .followRecommendBox{
     height: 300px;
     width: 330px;
-    background-color: rgb(240, 240, 240);
+    background-color: rgba(245, 245, 245, 0.692);
     margin-top: 20px;
     border-radius: 15px;
 }
@@ -60,3 +104,4 @@
     font-size: 18px;
     font-weight: bolder;
 }
+
