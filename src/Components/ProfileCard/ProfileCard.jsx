@@ -8,7 +8,7 @@ const ProfileCard = (props) => {
                 
             </div>
             <div className={style.profilePhoto}>
-                 <img src={profilePic}/>
+                 <img src={props.avatar}/>
             </div>
             <div className={style.editProfile}>
                 <button>Edit profile</button>
