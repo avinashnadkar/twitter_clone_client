@@ -11,7 +11,7 @@ import CloseIcon from '@mui/icons-material/Close';
 const ReplyTweetModal = () => {
 
     //Context data
-    const { replyTweetModal, handleReplyTweetModal,tweetId } = useContext(OpenModalContext)
+    const { replyTweetModal, handleReplyTweetModal,tweetInfo} = useContext(OpenModalContext)
     const {webToken, user_id} = useContext(AuthContext)
 
     //States for inputs field and other
@@ -20,14 +20,14 @@ const ReplyTweetModal = () => {
     //Post request to add tweet on server
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        //console.log( tweetInfo.tweetId,user_id )
         const headers = {
             'Content-Type': 'application/json',
             'x-auth-token': webToken
         }
 
         const body = {
-            'tweet_id' : tweetId,
+            'tweet_id' : tweetInfo.tweetId,
             'u_id' : user_id,
             'reply' : reply
         }
@@ -36,7 +36,7 @@ const ReplyTweetModal = () => {
         axios.post('http://localhost:2345/tweets/reply', body,{
             headers: headers
         }).then(res => {
-            //console.log(res)
+            console.log(res)
         }).catch(err => {
             console.log(err)
         })
@@ -58,7 +58,7 @@ const ReplyTweetModal = () => {
                     <button onClick={handleReplyTweetModal} className={style.closeBtn}><CloseIcon /></button>
                 </div>
                 <div className={style.replyContainer}>
-                    <TweetCard profilePic={profilePic} name={"name"} username={"@username"} tweet={"tweet ofngvo odnbo osfn"}  showActionBar={false}/>
+                    <TweetCard profilePic={profilePic} name={tweetInfo.name} username={tweetInfo.username} tweet={tweetInfo.tweet}  showActionBar={false}/>
                     <div className={style.modalForm}>
                         <div>
                             <img src={profilePic} />
