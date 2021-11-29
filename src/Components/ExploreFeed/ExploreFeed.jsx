@@ -13,6 +13,12 @@ const ExploreFeed = () => {
     //States 
     const [tweets,setTweets] = useState([]);
 
+    //header for http requests
+    const headers = {
+        'Content-Type': 'application/json',
+        "x-auth-token" : webToken
+    }
+
     //Get tweets 
     useEffect(() => {
         const headers = {
@@ -32,7 +38,21 @@ const ExploreFeed = () => {
         }).catch(err => {
             console.log(err)
         })
-    }, [])
+    }, []);
+
+    //Like tweet
+     const handleLikeTweet = (tweetID,u_ID) => {
+        axios.post('http://localhost:2345/tweets/like',
+            {
+                "tweet_id" : tweetID,
+                "u_id" : u_ID
+            },
+            {
+                headers : headers
+            }
+        )
+        console.log(tweetID,u_ID)
+    }
 
     return (
         // wrap code in react fragment
@@ -63,9 +83,20 @@ const ExploreFeed = () => {
                 <div className={style.tweetsContainer}>
                     {
                         tweets.map(el=>{
-                        return <TweetCard name={el.name} username="username" tweet={el.tweet} showActionBar={true} />
+                        return <TweetCard profilePic="https://pbs.twimg.com/profile_images/1236731619110719489/JyHmGkgb_400x400.jpg" 
+                                name={el.name} 
+                                username={el.username} 
+                                tweet={el.tweet} 
+                                media={el.media} 
+                                likesCount={5} 
+                                retweetCount={14} 
+                                replyCount={22} 
+                                showActionBar={true} 
+                                tweetID={el._id} 
+                                likeTweet={()=>{handleLikeTweet(el._id,el.u_id)}}
+                                />
                         })
-                    }  
+                    } 
                 </div>      
             </div>
         </>

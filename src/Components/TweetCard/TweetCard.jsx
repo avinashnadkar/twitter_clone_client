@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { OpenModalContext } from '../../Context/OpenModalContextProvider';
 import { TweetContext} from '../../Context/TweetContextProvider';
 
-const TweetCard = ({profilePic,name,username,tweet,media,replyCount,retweetCount,likesCount,showActionBar,tweetID}) => {
+const TweetCard = ({profilePic,name,username,tweet,media,replyCount,retweetCount,likesCount,showActionBar,tweetID,likeTweet}) => {
 
    //Context data
    const {replyTweetModal,handleReplyTweetModal} = useContext(OpenModalContext)
@@ -37,7 +37,7 @@ const TweetCard = ({profilePic,name,username,tweet,media,replyCount,retweetCount
                            <p>{retweetCount}</p>
                         </div>
                         <div>
-                           <button className={style.likeIcon}> <FavoriteBorderIcon style={{ fontSize: 18 }}/> </button>
+                           <button className={style.likeIcon} onClick={likeTweet}> <FavoriteBorderIcon style={{ fontSize: 18 }}/> </button>
                            <p>{likesCount}</p>
                         </div>
                         <div>
