@@ -16,17 +16,17 @@ const TweetCard = ({profilePic,name,username,tweet,media,replyCount,retweetCount
 
     return(
         <div onClick={()=>getTweet(tweetID)} className={style.tweetCard} style={{ borderBottom : showActionBar ?  '1px solid rgb(238, 238, 238)' : 'none'}}>
-              <Link to={'/tweet'}>
               <div className={style.userInfo}>
                  <img src={profilePic} className={style.displayPicture}/>
                  <div>
+                  <Link to={'/tweet'}>
                     <div className={style.userName}>
                         <h4>{name}</h4>
                         <p>{username}</p>
                     </div>
                     <p className={style.tweet}>{tweet}</p>
                    <img className={style.mediaFile} src={media}/>
-
+                   </Link> 
                     <div className={style.actions} style={{display : showActionBar ? "flex" :"none"}}>
                         <div>
                            <button className={style.commentIcon} onClick={()=> handleReplyTweetModal(tweetID,name,username,tweet)}> <ChatBubbleOutlineIcon style={{ fontSize: 18 }}/> </button>
@@ -46,7 +46,6 @@ const TweetCard = ({profilePic,name,username,tweet,media,replyCount,retweetCount
                     </div>
                 </div> 
               </div>
-            </Link> 
         </div>
     )
 }

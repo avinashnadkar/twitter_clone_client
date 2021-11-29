@@ -75,7 +75,7 @@ const Navbar = () => {
             </div>
 
             <div className={style.profile} onClick={showOptions}>
-                <div className={style.profilePic}> <img src={profilePic}/> </div>
+                <div className={style.profilePic}> <img src="https://pbs.twimg.com/profile_images/1236731619110719489/JyHmGkgb_400x400.jpg"/> </div>
                 <div className={style.nameContainer}> <p>{name}</p>  <p>{userName}</p></div>
                 <div className={style.profileIcon}> <MoreHorizIcon/> </div>
             </div>
