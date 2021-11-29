@@ -56,7 +56,7 @@ const TweetInput = () => {
     return(
         <div className={style.tweetFormContainer}>
             <form onSubmit={handleSubmit}>
-                <img src={profilePic}/>
+                <img src="https://pbs.twimg.com/profile_images/1236731619110719489/JyHmGkgb_400x400.jpg"/>
                 <div className={style.inputContainer}>
                     <textarea 
                         placeholder="What's happening ?" 

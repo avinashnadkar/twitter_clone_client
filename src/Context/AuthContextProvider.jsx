@@ -9,7 +9,7 @@ const AuthContextProvider = ({children}) => {
    let user_id = localStorage.getItem('user_id');
    let name = localStorage.getItem('name');
    let username= localStorage.getItem('username');
-   let avtar = localStorage.getItem('avtar');
+   let avatar = localStorage.getItem('avtar');
 
    //Auth state to authenticate and protect routes
    const [isAuth,setIsAuth] = useState(webToken == null ? false : true);
@@ -36,7 +36,7 @@ const AuthContextProvider = ({children}) => {
   }, [])
 
    //Send values and functions 
-   const value = { isAuth, setIsAuth, webToken, name, username , user_id, userData,};
+   const value = { isAuth, setIsAuth, webToken, name, username , user_id, userData,avatar};
 
    return(
         <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
